@@ -60,7 +60,7 @@ const OrderSchema = new mongoose.Schema({
   orderPhone: { type: Number },
   orderEmail: { type: String },
   orderPrice: { type: String },
-//   owner: { type: mongoose.ObjectId, required: true },
+  //   owner: { type: mongoose.ObjectId, required: true },
 });
 const orderModel = new mongoose.model("UserOrder", OrderSchema);
 
@@ -181,6 +181,17 @@ app.use("/api/v1", (req, res, next) => {
       res.status(401).send("invalid token");
     }
   });
+});
+
+app.post("/api/v1/logout", (req, res) => {
+  res.cookie("Token", "", {
+    maxAge: 1,
+    httpOnly: true,
+    sameSite: "none",
+    secure: true,
+  });
+
+  res.send({ message: "Logout successful" });
 });
 
 const gettingUser = async (req, res) => {
@@ -351,7 +362,7 @@ app.post("/api/v1/order", async (req, res) => {
       orderEmail: body.orderEmail,
       orderPhone: body.orderPhone,
       orderPrice: body.orderPrice,
-    //   owner: new mongoose.Types.ObjectId(token._id),
+      //   owner: new mongoose.Types.ObjectId(token._id),
     },
     (err, saved) => {
       if (!err) {
@@ -374,22 +385,20 @@ app.post("/api/v1/order", async (req, res) => {
 });
 
 app.get("/api/v1/allOrderAdmin", (req, res) => {
-    orderModel.find({}, (err, data) => {
-      if (!err) {
-        res.send({
-          data: data,
-          message: "Got All products Successfully",
-        });
-      } else {
-        res.send({
-          message: "Server Error",
-        });
-        res.status(500);
-      }
-    });
+  orderModel.find({}, (err, data) => {
+    if (!err) {
+      res.send({
+        data: data,
+        message: "Got All products Successfully",
+      });
+    } else {
+      res.send({
+        message: "Server Error",
+      });
+      res.status(500);
+    }
   });
-
-
+});
 
 app.use("/", express.static(path.join(path.resolve(__dirname), "./web/build")));
 app.use("*", express.static(path.join(path.resolve(__dirname), "./web/build")));
