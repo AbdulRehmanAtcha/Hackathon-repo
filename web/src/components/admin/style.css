@@ -1,0 +1,11 @@
+.admin-main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  background-color: #8ec63fd8;
+}
+button{
+    width: 30vw !important;
+}

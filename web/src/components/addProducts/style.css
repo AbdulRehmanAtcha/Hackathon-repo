@@ -1,0 +1,67 @@
+.add-main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* margin-top: 30px; */
+  background-color: #8dc63f;
+  /* align-items: center; */
+}
+.add-box {
+  border-radius: 15px;
+  margin-top: 50px;
+  background-color: white;
+  box-shadow: -9px -5px 5px #8f8f8f;
+  width: 400px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding-top: 30px; */
+  padding: 30px;
+}
+.add-main form {
+  height: 100%;
+  width: 100%;
+  /* border: 1px solid red;  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  /* border: 1px solid red; */
+  background-image: url(../../images/programmer.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.add-main form input{
+    height: 40px;
+    width: 90%;
+    border-radius: 6px;
+}
+.add-main form textarea{
+    resize: none;
+}
+#submit-btn{
+    width: 90px;
+}
+
+
+
+/* .inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: red;
+} */
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  .add-box {
+    width: 90%;
+    /* display: none; */
+  }
+}
