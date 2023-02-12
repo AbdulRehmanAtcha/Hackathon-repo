@@ -14,7 +14,7 @@ const Login = () => {
             <input type="password" placeholder="password" />
             <button>LOGIN</button>
           </form>
-          <h2 style={{fontSize:"20px", textAlign:"center"}}>Don't have An Account? <Link style={{color:"green"}} to="/"><span>Click Here</span></Link></h2>
+          <h2 style={{fontSize:"20px", textAlign:"center"}}>Don't have An Account? <Link style={{color:"green"}} to="/signup"><span>Click Here</span></Link></h2>
         </div>
       </div>
 

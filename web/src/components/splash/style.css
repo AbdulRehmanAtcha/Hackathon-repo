@@ -1,3 +1,27 @@
-*{
-    color: green;
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,900&display=swap');
+.splash-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+    height: 100vh;
+    background-color: white;
+
+}
+.splash-box{
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 0px;
+    /* background-color: rgb(17, 17, 17); */
+}
+body{
+    overflow-x: hidden;
+}
+h2, h3, button{
+    font-family: 'Source Sans Pro', sans-serif;
 }
