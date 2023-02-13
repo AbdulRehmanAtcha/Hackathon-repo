@@ -15,9 +15,9 @@ const Display = () => {
   const [cartItems, setCartItems] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   // const [showing, setShowing] = useState(false);
-  const [orderName ,setOrderName] = useState("");
-  const [orderEmail ,setOrderEmail] = useState("");
-  const [orderPhone ,setOrderPhone] = useState("");
+  const [orderName, setOrderName] = useState("");
+  const [orderEmail, setOrderEmail] = useState("");
+  const [orderPhone, setOrderPhone] = useState("");
 
   const allPosts = async () => {
     //   setLoading(true);
@@ -59,7 +59,7 @@ const Display = () => {
         orderName: orderName,
         orderEmail: orderEmail,
         orderPhone: orderPhone,
-        orderPrice:totalPrice,
+        orderPrice: totalPrice,
       })
       .then((response) => {
         console.log(response);
@@ -178,6 +178,8 @@ const Display = () => {
                     setOrderName(e.target.value);
                   }}
                 />
+                <br />
+                <br />
                 <input
                   type="email"
                   name="Email"
@@ -186,6 +188,8 @@ const Display = () => {
                     setOrderEmail(e.target.value);
                   }}
                 />
+                <br />
+                <br />
                 <input
                   type="tel"
                   name="Phone"
@@ -194,6 +198,8 @@ const Display = () => {
                     setOrderPhone(e.target.value);
                   }}
                 />
+                <br />
+                <br />
                 {/* <input type="submit" value="Confirm Order" /> */}
               </form>
             </div>
