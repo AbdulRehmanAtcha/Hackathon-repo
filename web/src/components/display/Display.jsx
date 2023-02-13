@@ -173,6 +173,7 @@ const Display = () => {
                 <input
                   type="text"
                   name="Name"
+                  placeholder="NAME"
                   onChange={(e) => {
                     setOrderName(e.target.value);
                   }}
@@ -180,6 +181,7 @@ const Display = () => {
                 <input
                   type="email"
                   name="Email"
+                  placeholder="EMAIL"
                   onChange={(e) => {
                     setOrderEmail(e.target.value);
                   }}
@@ -187,6 +189,7 @@ const Display = () => {
                 <input
                   type="tel"
                   name="Phone"
+                  placeholder="PHONE"
                   onChange={(e) => {
                     setOrderPhone(e.target.value);
                   }}
