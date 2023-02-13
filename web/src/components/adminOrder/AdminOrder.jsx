@@ -26,30 +26,32 @@ const AdminOrder = () => {
   }, []);
   return (
     <>
-      hello Admin All Orders
+     <h2 style={{textAlign:"center"}}>All Orders</h2>
       {allItems === null ? null : (
-        <table className="table table-dark table-hover">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {allItems.map((eachProduc, i) => (
-              <tr key={i}>
-                <td>{eachProduc?._id}</td>
-                <td>{eachProduc?.orderName}</td>
-                <td>{eachProduc?.orderEmail}</td>
-                <td>{eachProduc?.orderPhone}</td>
-                <td>PKR: {eachProduc?.orderPrice}</td>
+        <div className="table-responsive">
+          <table className="table table-condensed table-bordered table-dark table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Price</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {allItems.map((eachProduc, i) => (
+                <tr key={i}>
+                  <td>{eachProduc?._id}</td>
+                  <td>{eachProduc?.orderName}</td>
+                  <td>{eachProduc?.orderEmail}</td>
+                  <td>{eachProduc?.orderPhone}</td>
+                  <td>PKR: {eachProduc?.orderPrice}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </>
   );

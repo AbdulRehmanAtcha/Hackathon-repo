@@ -159,7 +159,7 @@ const Display = () => {
               </button>
             </Link>
             <Link to="/userProfile">
-              <button type="button" className="btn btn-secondary">
+              <button type="button" className="btn btn-secondary" style={{height:"56px"}}>
                 Profile
               </button>
             </Link>
