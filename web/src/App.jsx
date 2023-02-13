@@ -29,10 +29,10 @@ function App() {
         let response = await axios.get(`${baseURL}/api/v1/profile`, {
           withCredentials: true,
         });
-        dispatch({
-          type: "USER_LOGIN",
-          payload: response.data,
-        });
+        // dispatch({
+        //   type: "USER_LOGIN",
+        //   payload: response.data,
+        // });
         console.log(response);
         if (response.data.user.name === "Abdul Rehman Atcha") {
           dispatch({
