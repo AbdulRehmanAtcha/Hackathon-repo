@@ -45,7 +45,7 @@ const AdminOrder = () => {
                 <td>{eachProduc?.orderName}</td>
                 <td>{eachProduc?.orderEmail}</td>
                 <td>{eachProduc?.orderPhone}</td>
-                <td>${eachProduc?.orderPrice}</td>
+                <td>PKR: {eachProduc?.orderPrice}</td>
               </tr>
             ))}
           </tbody>

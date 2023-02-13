@@ -13,6 +13,7 @@ import AddProducts from "./components/addProducts/AddProducts";
 // import Orders from './components/orders/Orders'
 import Display from "./components/display/Display";
 import AdminOrder from "./components/adminOrder/AdminOrder";
+import UserProfile from "./components/userProfile/UserProfile";
 // import YourOrders from "./components/yourOrders/YourOrders";
 // import Cart from "./components/cart/Cart";
 let baseURL = "";
@@ -76,6 +77,7 @@ function App() {
           <Routes>
             {/* <Route path="/" element={<User />} /> */}
             <Route path="/" element={<Display/>} />
+            <Route path="/userProfile" element={<UserProfile/>} />
             {/* <Route path="/yourOrders" element={<YourOrders/>} /> */}
             {/* <Route path="/cart" element={<Cart/>} /> */}
             <Route path="*" element={<Display />} />

@@ -1,18 +1,22 @@
 import React from "react";
-import { useContext } from "react";
-import user from '../../images/programmer.png'
 import "./style.css";
+import { useContext } from "react";
+import user from "../../images/programmer.png";
 import axios from "axios";
 import { GlobalContext } from "../../context/Context";
 
-const AdminProfile = () => {
+const UserProfile = () => {
   axios.defaults.withCredentials = true;
   let { state, dispatch } = useContext(GlobalContext);
   return (
-    <div className="admin-profile-main">
-      <div className="profile-box">
-        <div className="card">
-          <img src={user} alt="John" style={{width:"10%", textAlign:"center"}} />
+    <div className="user-profile-main">
+      <div className="user-profile-box">
+        <div className="card2">
+          <img
+            src={user}
+            alt="USER"
+            style={{ width: "10%", textAlign: "center" }}
+          />
           <h1>
             {state?.user?.user?.name === undefined
               ? state?.user?.name
@@ -23,7 +27,7 @@ const AdminProfile = () => {
               ? state?.user?.email
               : state?.user?.user?.email}
           </h2>
-          <p className="title">ADMIN OF SAYALANI DISCOUNT STORE</p>
+          <p className="title">User OF SAYALANI DISCOUNT STORE</p>
           <p>SMIT</p>
         </div>
       </div>
@@ -31,4 +35,4 @@ const AdminProfile = () => {
   );
 };
 
-export default AdminProfile;
+export default UserProfile;

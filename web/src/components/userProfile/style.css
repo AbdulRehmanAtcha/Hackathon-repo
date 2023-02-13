@@ -1,0 +1,33 @@
+.user-profile-main{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8DC63F;
+
+}
+.user-profile-box{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 5px 14px 13px grey;
+    /* width: 30%; */
+    /* width: 12vw; */
+    height: 25%;
+}
+/* .card2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-size: 12px;
+} */
+.card2 h1, h2{
+    font-size: 20px !important;
+    font-weight: bold !important;
+}

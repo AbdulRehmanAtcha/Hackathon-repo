@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./style.css";
 import cart from "../../images/shopping-cart.png";
 import trolley from "../../images/trolley.jfif";
 import axios from "axios";
+import { GlobalContext } from "../../context/Context";
 import { Link } from "react-router-dom";
 let baseURL = "";
 if (window.location.href.split(":")[0] === "http") {
@@ -11,6 +12,7 @@ if (window.location.href.split(":")[0] === "http") {
 
 const Display = () => {
   axios.defaults.withCredentials = true;
+  let { state, dispatch } = useContext(GlobalContext);
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -63,11 +65,29 @@ const Display = () => {
       })
       .then((response) => {
         console.log(response);
+        alert(response.data.message)
       })
       .catch((err) => {
         console.log("Error", err);
         // console.log(object)
       });
+  };
+
+  const logoutHandler = async () => {
+    try {
+      let response = await axios.post(`${baseURL}/api/v1/logout`, {
+        withCredentials: true,
+      });
+      console.log("res", response);
+      // dispatch({
+      //   type: "USER_LOGOUT",
+      // });
+      dispatch({
+        type: "USER_LOGOUT",
+      });
+    } catch (e) {
+      console.log("e: ", e);
+    }
   };
 
   return (
@@ -117,11 +137,14 @@ const Display = () => {
         </div>
         <div className="footer">
           <div className="btn-group" role="group" aria-label="Basic example">
-            <Link>
-              <button type="button" className="btn btn-secondary">
-                Home
-              </button>
-            </Link>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={logoutHandler}
+            >
+              LOGOUT
+            </button>
+
             <Link
               type="button"
               className="btn btn-dark"
@@ -135,9 +158,11 @@ const Display = () => {
                 <span className="badge badge-light">{cartItems}</span>
               </button>
             </Link>
-            <button type="button" className="btn btn-secondary">
-              Orders
-            </button>
+            <Link to="/userProfile">
+              <button type="button" className="btn btn-secondary">
+                Profile
+              </button>
+            </Link>
           </div>
         </div>
       </div>
