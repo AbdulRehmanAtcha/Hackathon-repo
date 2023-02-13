@@ -45,9 +45,9 @@
   border: 2px solid rgb(49, 182, 31);
 }
 .sign-box form button {
-  width: 80%;
+  width: 150px !important;
   border-radius: 9px;
-  height: 35px;
+  height: 55px !important;
   background-color: #8ec63f;
   color: aliceblue;
   border: none;

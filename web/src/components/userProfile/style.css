@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     background-color: #8DC63F;
+    flex-direction: column;
 
 }
 .user-profile-box{

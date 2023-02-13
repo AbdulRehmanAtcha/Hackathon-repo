@@ -8,6 +8,7 @@ import jwt from "jsonwebtoken";
 import multer from "multer";
 import bucket from "./firebaseAdmin/index.mjs";
 // import fs from 'fs'
+let name;
 const app = express();
 const port = process.env.PORT || 5001;
 const __dirname = path.resolve();
@@ -60,7 +61,7 @@ const OrderSchema = new mongoose.Schema({
   orderPhone: { type: Number },
   orderEmail: { type: String },
   orderPrice: { type: String },
-  //   owner: { type: mongoose.ObjectId, required: true },
+  owner: { type: mongoose.ObjectId, required: true },
 });
 const orderModel = new mongoose.model("UserOrder", OrderSchema);
 
@@ -108,6 +109,7 @@ app.post("/api/v1/login", async (req, res) => {
           },
           SECRET
         );
+        name = name;
 
         // console.log("token: ", token);
 
@@ -280,6 +282,7 @@ app.post("/api/v1/product", uploadMiddleware.any(), (req, res) => {
                   category: body.category,
                   unitName: body.unitName,
                   unitPrice: body.unitPrice,
+                  owner: new mongoose.Types.ObjectId(token._id),
                 },
                 (err, saved) => {
                   if (!err) {
@@ -327,9 +330,9 @@ app.get("/api/v1/products", (req, res) => {
   });
 });
 
-app.get("/api/v1/products", async (req, res) => {
+app.get("/api/v1/yourOrders", async (req, res) => {
   const userId = new mongoose.Types.ObjectId(req.token._id);
-  try {
+  try { 
     const data = await orderModel
       .find({ owner: userId })
       // .select({description: 0, name: 0}) // projection
@@ -348,6 +351,7 @@ app.get("/api/v1/products", async (req, res) => {
   }
 });
 app.post("/api/v1/order", async (req, res) => {
+  const token = jwt.decode(req.cookies.Token);
   const body = req.body;
   if (!body.orderName || !body.orderEmail || !body.orderPhone) {
     res.status(400);
@@ -362,6 +366,7 @@ app.post("/api/v1/order", async (req, res) => {
       orderEmail: body.orderEmail,
       orderPhone: body.orderPhone,
       orderPrice: body.orderPrice,
+      owner: new mongoose.Types.ObjectId(token._id),
       //   owner: new mongoose.Types.ObjectId(token._id),
     },
     (err, saved) => {
