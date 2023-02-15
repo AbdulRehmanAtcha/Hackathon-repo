@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext, useEffect } from "react";
 import "./App.css";
 import { GlobalContext } from "./context/Context";
-// import User from "./components/user/User"; 
+// import User from "./components/user/User";
 import Admin from "./components/admin/Admin";
 import Signup from "./components/signup/Signup";
 import { Route, Routes, Navigate } from "react-router-dom";
@@ -62,43 +62,42 @@ function App() {
   }, []);
   return (
     <>
-        {state.isAdmin === true ? (
+      {state.isAdmin === true ? (
         <Routes>
           <Route path="/" element={<Admin />} />
           <Route path="/adminProfile" element={<AdminProfile />} />
           <Route path="/addProducts" element={<AddProducts />} />
-          <Route path="/allOrders" element={<AdminOrder/>} />
+          <Route path="/allOrders" element={<AdminOrder />} />
           <Route path="*" element={<Admin />} />
         </Routes>
-        ) : null}
+      ) : null}
 
-        {state.isLogin === true &&
-        (state.isAdmin === false || state.isAdmin === null) ? (
-          <Routes>
-            {/* <Route path="/" element={<User />} /> */}
-            <Route path="/" element={<Display/>} />
-            <Route path="/userProfile" element={<UserProfile/>} />
-            {/* <Route path="/yourOrders" element={<YourOrders/>} /> */}
-            {/* <Route path="/cart" element={<Cart/>} /> */}
-            <Route path="*" element={<Display />} />
-          </Routes>
-        ) : null}
+      {state.isLogin === true &&
+      (state.isAdmin === false || state.isAdmin === null) ? (
+        <Routes>
+          {/* <Route path="/" element={<User />} /> */}
+          <Route path="/" element={<Display />} />
+          <Route path="/userProfile" element={<UserProfile />} />
+          {/* <Route path="/yourOrders" element={<YourOrders/>} /> */}
+          {/* <Route path="/cart" element={<Cart/>} /> */}
+          <Route path="*" element={<Display />} />
+        </Routes>
+      ) : null}
 
-        {state.isAdmin === false && state.isLogin === false ? (
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="*" element={<Login />} />
-          </Routes>
-        ) : null}
+      {state.isAdmin === false && state.isLogin === false ? (
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="*" element={<Login />} />
+        </Routes>
+      ) : null}
 
-        {state.isAdmin === null && state.isLogin === null ? (
-          <Routes>
-            <Route to='/' element={<Splash/>}/>
-            <Route to='*' element={<Splash/>}/>
-          </Routes>
-        ) : null}
-        
+      {state.isAdmin === null && state.isLogin === null ? (
+        <Routes>
+          <Route to="/" element={<Splash />} />
+          <Route to="*" element={<Splash />} />
+        </Routes>
+      ) : null}
     </>
   );
 }

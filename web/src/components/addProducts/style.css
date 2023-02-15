@@ -40,6 +40,9 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+textarea{
+  max-width: 95%;
+}
 .add-main form input{
     height: 40px;
     width: 90%;

@@ -54,31 +54,33 @@ const UserProfile = () => {
       </div>
       <br />
       <br />
-      <h2 style={{color:"aliceblue"}}>All your orders</h2>
-      {allItems === null ? null : (
-        <table className="table table-dark table-hover">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {allItems.map((eachProduc, i) => (
-              <tr key={i}>
-                <td>{eachProduc?._id}</td>
-                <td>{eachProduc?.orderName}</td>
-                <td>{eachProduc?.orderEmail}</td>
-                <td>{eachProduc?.orderPhone}</td>
-                <td>PKR: {eachProduc?.orderPrice}</td>
+      <h2 style={{ color: "aliceblue" }}>All your orders</h2>
+      <div className="table-responsive">
+        {allItems === null ? null : (
+          <table className="table table-dark table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Price</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+            </thead>
+            <tbody>
+              {allItems.map((eachProduc, i) => (
+                <tr key={i}>
+                  <td>{eachProduc?._id}</td>
+                  <td>{eachProduc?.orderName}</td>
+                  <td>{eachProduc?.orderEmail}</td>
+                  <td>{eachProduc?.orderPhone}</td>
+                  <td>PKR: {eachProduc?.orderPrice}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
     </div>
   );
 };
